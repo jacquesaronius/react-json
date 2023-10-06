@@ -28,11 +28,35 @@
   color: #61dafb;
 }
 
+.invisible {
+  display: none;
+  animation-duration: 0.5s;
+  animation-name: fade;
+  animation-fill-mode: backwards; 
+}
+
+.visible {
+  display: auto;
+  animation-duration: 0.5s;
+  animation-name: fade;
+  animation-fill-mode: forwards; 
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes fade {
+  0% {
+      opacity: 0;
+  }
+
+  100% {
+      opacity: 100;
   }
 }
