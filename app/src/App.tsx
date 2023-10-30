@@ -1,12 +1,13 @@
 
 import './App.css';
 import Systems  from './components/Systems';
-import { OverridableComponent } from '@mui/material/OverridableComponent';
+import NavBar from './components/NavBar';
 
 function App() {
 
   return (
     <div className="App">
+      <NavBar />
       <Systems />
     </div>
   );
