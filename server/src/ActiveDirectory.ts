@@ -42,16 +42,18 @@ class ActiveDirectory {
       attributes: attributes
     }
 
-    let x = await this.ad.find(opts, function(err, results) {
+    let p = new Promise((resolve, reject) => this.ad.find(opts, function(err, results) {
       if ((err) || (! results)) {
         console.log('ERROR: ' + JSON.stringify(err));
-        return;
+        reject(err);
       }
       console.log('getComputers(' + dn + ') = ' + JSON.stringify(results));
-      return results;
-    });
-    console.log(`x = ${x}`)
-    return x;
+      resolve(results.other);
+    }))
+    let result = await p;
+    console.log(`x = ${result}`)
+    return result;
+    
   }
 
 }
